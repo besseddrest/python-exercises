@@ -38,6 +38,7 @@ import requests
 # # print(titles)
 
 # MediaWiki
+# return search data
 url = "http://en.wikipedia.org/w/api.php"
 
 params = {

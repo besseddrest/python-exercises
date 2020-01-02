@@ -86,9 +86,7 @@ word_lengths = [len(word) for word in fox.split(' ') if word.lower() != 'the']
 word_with_vowels = 'ALUMINOSILICATES'
 list_of_vowels = []
 [list_of_vowels.append(letter) for letter in word_with_vowels if letter.lower() in ('a', 'e', 'i', 'o', 'u')]
-print(list_of_vowels)
-
-
+# print(list_of_vowels)
 
 # Given a string representing a word, write a set comprehension that produces a set of all the vowels in that word.
 
