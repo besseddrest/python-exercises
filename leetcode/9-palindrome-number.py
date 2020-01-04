@@ -22,12 +22,12 @@
 # Output: false
 # Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 
-my_num = 10
+my_num = -121
 
 def is_palindrome(num):
     string_num = str(num)
     reverse_num = str(num)[::-1]
 
-    return "true" if string_num == reverse_num else "false"
+    return True if string_num == reverse_num else False
 
 print(is_palindrome(my_num))
