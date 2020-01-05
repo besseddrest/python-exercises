@@ -1,5 +1,8 @@
 # Source: https://www.youtube.com/watch?v=JlMyYuY1aXU
 #
+# thie code below mostly follows the tutorial in the video, 
+# but I did in fact type this out myself and made some minor changes
+#
 # just trying to understand Linked Lists
 
 class ListNode:
