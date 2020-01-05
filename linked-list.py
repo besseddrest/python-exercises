@@ -55,6 +55,7 @@ class LinkedList:
 
             current_index += 1
 
+
     # returns the length of the linked list
     def length(self):
         count = 0
