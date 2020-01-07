@@ -18,21 +18,31 @@ Your function should return length = 5, with the first five elements of nums bei
 It doesn't matter what values are set beyond the returned length.
 """
 
-# TODO: need to modify the original list, not just return the length
-
 # nums = [1, 1, 2]
-nums = [0,0,1,1,1,2,2,3,3,4]
+nums = [0,0,1,1,2,2,3,3,4]
 
 def remove_duplicates(nums):  
-    current = None
-    nums_len = 0
+    # we use this as a pointer to the current array index that we want to edit 
+    # it conveniently doubles as a counter
+    index = 1
+    num_length = len(nums)
 
-    if len(nums) == 0:
-        return 0
+    for i in range(0, num_length - 1):
+        # if the current value and the next value are different
+        if nums[i] != nums[i + 1]:
+            # update our pointer index value to the next unique value
+            nums[index] = nums[i + 1]
+            # move our pointer to the next slot to update
+            index += 1
 
-    for number in nums:
-        if current != number:
-            current = number
-            nums_len = nums_len + 1
+    # our index has conveniently doubled as a counter
+    # since technically the index now points at the slot AFTER our last unique number
+    return index
 
-    return nums_len
+print(remove_duplicates(nums))
+
+# Runtime: 
+# 84 ms, faster than 76.78% of Python3 online submissions for Remove Duplicates from Sorted Array.
+# 
+# Memory Usage: 
+# 14.4 MB, less than 98.36% of Python3 online submissions for Remove Duplicates from Sorted Array.
