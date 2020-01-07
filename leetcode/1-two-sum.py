@@ -46,19 +46,111 @@ def twoSum(self, nums: List[int], target: int) -> List[int]:
 # Memory Usage: 
 # 14.7 MB, less than 16.51% of Python3 online submissions for Two Sum.
 
-
+def twoSum2(self, nums: List[int], target: int) -> List[int]:
+    indices = []
+    checked = {}
+    
+    for i in range(0, len(nums)):
+        diff = target - nums[i]
+        
+        if diff in checked.keys():
+            indices.append(i)
+            indices.append(checked[diff])
+            return indices
+            
+        checked[nums[i]] = i
+        
+    return indices
+    
 # 2nd pass:
-# added line 32:
+# added line 59:
 # once we have these values, we don't have to continue checking, since there is only one solution
 #
 # Runtime: 
-# 52 ms, faster than 54.13% of Python3 online submissions for Two Sum.
+# 52 ms, faster than 54.08% of Python3 online submissions for Two Sum.
 # 
 # Memory Usage: 
-# 14 MB, less than 65.58% of Python3 online submissions for Two Sum.
+# 13.9 MB, less than 68.14% of Python3 online submissions for Two Sum.
 
 
 # ideas for 3rd pass:
 # 
 # maybe faster and less memory if we use a non-dictionary solution
+# how about don't create dicionary and just re-check the input array for value?
 
+def twoSum3(self, nums: List[int], target: int) -> List[int]:
+    indices = []
+        length = len(nums)
+
+        for i in range(0, length):
+            diff = target - nums[i]
+
+            if diff in nums[i + 1:]:
+                indices.extend((i, length - 1 - nums[::-1].index(diff)))
+                return indices
+
+        return indices
+
+
+# Runtime: 
+# 776 ms, faster than 30.55% of Python3 online submissions for Two Sum.
+#
+# Memory Usage:
+# 13.9 MB, less than 68.37% of Python3 online submissions for Two Sum.
+
+# Runtime: 
+# 792 ms, faster than 29.76% of Python3 online submissions for Two Sum.
+# 
+# Memory Usage: 
+# 13.8 MB, less than 69.77% of Python3 online submissions for Two Sum.
+
+# Runtime: 
+# 852 ms, faster than 26.42% of Python3 online submissions for Two Sum.
+# 
+# Memory Usage: 
+# 13.8 MB, less than 73.72% of Python3 online submissions for Two Sum.
+
+# 4th pass:
+# dicionary method but use extend instead of append twice
+
+def twoSum4(self, nums: List[int], target: int) -> List[int]:
+    indices = []
+    checked = {}
+
+    for i in range(0, len(nums)):
+        diff = target - nums[i]
+
+        if diff in checked.keys():
+            indices.extend((i, checked[diff]))
+            return indices
+
+        checked[nums[i]] = i
+
+    return indices
+
+# Runtime: 
+# 48 ms, faster than 77.99% of Python3 online submissions for Two Sum.
+# 
+# Memory Usage: 
+# 13.9 MB, less than 66.05% of Python3 online submissions for Two Sum.
+
+# 5th pass - fastest!
+
+def twoSum5(self, nums: List[int], target: int) -> List[int]:
+    checked = {}
+
+    for i in range(0, len(nums)):
+        diff = target - nums[i]
+
+        if diff in checked.keys():
+            return [i, checked[diff]]
+
+        checked[nums[i]] = i
+
+    return []
+
+# Runtime: 
+# 44 ms, faster than 91.98% of Python3 online submissions for Two Sum.
+# 
+# Memory Usage: 
+# 14.1 MB, less than 64.65% of Python3 online submissions for Two Sum.
