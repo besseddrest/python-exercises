@@ -80,16 +80,16 @@ def twoSum2(self, nums: List[int], target: int) -> List[int]:
 
 def twoSum3(self, nums: List[int], target: int) -> List[int]:
     indices = []
-        length = len(nums)
+    length = len(nums)
 
-        for i in range(0, length):
-            diff = target - nums[i]
+    for i in range(0, length):
+        diff = target - nums[i]
 
-            if diff in nums[i + 1:]:
-                indices.extend((i, length - 1 - nums[::-1].index(diff)))
-                return indices
+        if diff in nums[i + 1:]:
+            indices.extend((i, length - 1 - nums[::-1].index(diff)))
+            return indices
 
-        return indices
+    return indices
 
 
 # Runtime: 
@@ -135,6 +135,7 @@ def twoSum4(self, nums: List[int], target: int) -> List[int]:
 # 13.9 MB, less than 66.05% of Python3 online submissions for Two Sum.
 
 # 5th pass - fastest!
+# screw the indices
 
 def twoSum5(self, nums: List[int], target: int) -> List[int]:
     checked = {}
