@@ -174,8 +174,10 @@ class Solution4:
 
 class Solution:
     def romanToInt(self, s: str) -> int:
+        # value map
         romans = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
 
+        # return if just one value
         if len(s) == 1:
             return romans[s]
 
@@ -185,7 +187,9 @@ class Solution:
             less = 0
             curr = s[i]
 
+            # if we're past the first item, we can now check the previous value
             if i > 0:
+                # `less` value is doubled because we've already added it to the total in the previous iteration
                 if curr in 'VX' and s[i - 1] == 'I':
                     less = -2
                     pass
@@ -194,7 +198,8 @@ class Solution:
                     pass
                 elif curr in 'DM' and s[i - 1] == 'C':
                     less = -200
-
+            
+            # add total plus current value plus the less value
             total += romans[s[i]] + less
 
         return total 
