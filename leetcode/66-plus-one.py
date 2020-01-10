@@ -29,11 +29,9 @@ class Solution:
         for i in range(0, len(digits)):
             number = (number * 10) + digits[i]
 
-        number += 1
-        
         # cast the full number as a string
         # iterate over each number in the string and re-cast the digit as int before placing into our new list
-        return [int(i) for i in str(number)]
+        return [int(i) for i in str(number + 1)]
 
 # Runtime: 
 # 24 ms, faster than 94.58% of Python3 online submissions for Plus One.
