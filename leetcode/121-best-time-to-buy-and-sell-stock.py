@@ -56,3 +56,22 @@ class Solution2:
 
 # Runtime: 64 ms, faster than 57.51% of Python3 online submissions for Best Time to Buy and Sell Stock.
 # Memory Usage: 13.9 MB, less than 75.86% of Python3 online submissions for Best Time to Buy and Sell Stock.
+
+class Solution3:
+    def maxProfit(self, prices: List[int]) -> int:
+        if len(prices) == 0:
+            return 0
+        
+        buy = 0
+        sell = prices[0]
+        
+        for i in range(1, len(prices)):
+            if prices[i] < sell:
+                sell = prices[i]
+            else:
+                buy = max(buy, prices[i] - sell)
+                
+        return buy
+
+# Runtime: 60 ms, faster than 81.63% of Python3 online submissions for Best Time to Buy and Sell Stock.
+# Memory Usage: 13.9 MB, less than 74.71% of Python3 online submissions for Best Time to Buy and Sell Stock.
