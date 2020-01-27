@@ -45,5 +45,6 @@ class Solution:
 # param_1 = obj.reset()
 # param_2 = obj.shuffle()
 
+# slicing [:] seems faster than list()
 # Runtime: 280 ms, faster than 90.00% of Python3 online submissions for Shuffle an Array.
 # Memory Usage: 17.6 MB, less than 100.00% of Python3 online submissions for Shuffle an Array.
